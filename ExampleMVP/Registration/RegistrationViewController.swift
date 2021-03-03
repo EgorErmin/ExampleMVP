@@ -1,22 +1,21 @@
 //
-//  AuthorizationViewController.swift
+//  RegistrationViewController.swift
 //  ExampleMVP
 //
-//  Created by EgorErmin on 02.03.2021.
+//  Created by EgorErmin on 03.03.2021.
 //
 
 import UIKit
 import SnapKit
 
-protocol AuthorizationView {
-    func removePassword()
+protocol RegistrationView {
     func setPasswordSecurityMode(isSecure: Bool)
 }
 
-final class AuthorizationViewController: UIViewController {
+final class RegistrationViewController: UIViewController {
     
     // MARK: - Stored properties
-    var presenter: AuthorizationPresenter?
+    var presenter: RegistrationPresenter?
     
     // MARK: - Computed properties
     lazy var mainView: UIView = {
@@ -41,6 +40,13 @@ final class AuthorizationViewController: UIViewController {
         return label
     }()
     
+    lazy var repeatPasswordLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Repeat password"
+        label.font = UIFont(name: "Arial", size: 17)
+        return label
+    }()
+    
     lazy var loginTextField: UITextField = {
         let textField = UITextField()
         textField.font = UIFont(name: "Arial", size: 15)
@@ -60,6 +66,16 @@ final class AuthorizationViewController: UIViewController {
         return textField
     }()
     
+    lazy var repeatPasswordTextField: UITextField = {
+        let textField = UITextField()
+        textField.isSecureTextEntry = true
+        textField.font = UIFont(name: "Arial", size: 15)
+        textField.placeholder = "Repeat your password"
+        textField.borderStyle = .roundedRect
+        textField.delegate = self
+        return textField
+    }()
+    
     lazy var showPasswordLabel: UILabel = {
         let label = UILabel()
         label.text = "Show password?"
@@ -73,12 +89,12 @@ final class AuthorizationViewController: UIViewController {
         return passwordSwitch
     }()
     
-    lazy var loginButton: UIButton = {
+    lazy var registrationButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Login", for: .normal)
+        button.setTitle("Registration", for: .normal)
         button.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         button.layer.cornerRadius = 8
-        button.addTarget(self, action: #selector(login), for: .touchUpInside)
+        button.addTarget(self, action: #selector(registration), for: .touchUpInside)
         return button
     }()
     
@@ -92,15 +108,17 @@ final class AuthorizationViewController: UIViewController {
     private func setupUI() {
         mainView.translatesAutoresizingMaskIntoConstraints = false
         
-        self.title = "Login"
+        self.title = "Registration"
         self.view.backgroundColor = .white
         self.view.addSubview(mainView)
-        self.view.addSubview(loginButton)
+        self.view.addSubview(registrationButton)
         
         mainView.addSubview(loginLabel)
         mainView.addSubview(passwordLabel)
         mainView.addSubview(loginTextField)
         mainView.addSubview(passwordTextField)
+        mainView.addSubview(repeatPasswordLabel)
+        mainView.addSubview(repeatPasswordTextField)
         mainView.addSubview(showPasswordLabel)
         mainView.addSubview(showPasswordSwitch)
         
@@ -109,7 +127,7 @@ final class AuthorizationViewController: UIViewController {
             $0.left.right.equalToSuperview().inset(16)
         })
         
-        loginButton.snp.makeConstraints({
+        registrationButton.snp.makeConstraints({
             $0.top.equalTo(mainView.snp.bottom).offset(16)
             $0.centerX.equalToSuperview()
             $0.width.equalTo(mainView.snp.width)
@@ -134,8 +152,18 @@ final class AuthorizationViewController: UIViewController {
             $0.left.right.equalToSuperview().inset(16)
         })
         
-        showPasswordSwitch.snp.makeConstraints({
+        repeatPasswordLabel.snp.makeConstraints({
             $0.top.equalTo(passwordTextField.snp.bottom).offset(16)
+            $0.left.right.equalToSuperview().inset(16)
+        })
+        
+        repeatPasswordTextField.snp.makeConstraints({
+            $0.top.equalTo(repeatPasswordLabel.snp.bottom).offset(8)
+            $0.left.right.equalToSuperview().inset(16)
+        })
+        
+        showPasswordSwitch.snp.makeConstraints({
+            $0.top.equalTo(repeatPasswordTextField.snp.bottom).offset(16)
             $0.right.equalToSuperview().inset(16)
             $0.bottom.equalToSuperview().inset(16)
         })
@@ -150,22 +178,20 @@ final class AuthorizationViewController: UIViewController {
         presenter?.passwordSwitchChanged(state: showPasswordSwitch.isOn)
     }
     
-    @objc private func login() {
-        presenter?.loginButtonTapped(login: loginTextField.text ?? "",
-                                     password: passwordTextField.text ?? "")
+    @objc private func registration() {
+        presenter?.registrationButtonTapped(login: loginTextField.text ?? "",
+                                            password: passwordTextField.text ?? "",
+                                            repeatedPassword: repeatPasswordTextField.text ?? "")
     }
     
 }
 
-// MARK: - AuthorizationView protocol implement
-extension AuthorizationViewController: AuthorizationView {
-    
-    func removePassword() {
-        passwordTextField.text = ""
-    }
+// MARK: - RegistrationView protocol implement
+extension RegistrationViewController: RegistrationView {
     
     func setPasswordSecurityMode(isSecure: Bool) {
         passwordTextField.isSecureTextEntry = isSecure
+        repeatPasswordTextField.isSecureTextEntry = isSecure
     }
-
+    
 }

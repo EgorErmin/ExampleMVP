@@ -12,6 +12,12 @@
 		C2AC99AA25EE7725002163C0 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AC99A925EE7725002163C0 /* AuthorizationViewController.swift */; };
 		C2AC99AF25EE7AC4002163C0 /* AuthorizationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AC99AE25EE7AC4002163C0 /* AuthorizationPresenter.swift */; };
 		C2AC99B525EE7CBA002163C0 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AC99B425EE7CBA002163C0 /* BaseCoordinator.swift */; };
+		C2DAC65325EF8FC800F9F691 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DAC65225EF8FC800F9F691 /* RegistrationViewController.swift */; };
+		C2DAC65B25EF8FD900F9F691 /* RegistrationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DAC65A25EF8FD900F9F691 /* RegistrationPresenter.swift */; };
+		C2DAC66125EF951300F9F691 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DAC66025EF951300F9F691 /* MainViewController.swift */; };
+		C2DAC66625EF952200F9F691 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DAC66525EF952200F9F691 /* MainPresenter.swift */; };
+		C2DAC66C25EF9D5400F9F691 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DAC66B25EF9D5400F9F691 /* DBManager.swift */; };
+		C2DAC67225EFA4D900F9F691 /* GlobalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DAC67125EFA4D900F9F691 /* GlobalExtensions.swift */; };
 		C2FD12EA25EE72C600A707FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FD12E925EE72C600A707FF /* AppDelegate.swift */; };
 		C2FD12F325EE72C700A707FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2FD12F225EE72C700A707FF /* Assets.xcassets */; };
 		C2FD12F625EE72C700A707FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2FD12F425EE72C700A707FF /* LaunchScreen.storyboard */; };
@@ -50,6 +56,12 @@
 		C2AC99A925EE7725002163C0 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
 		C2AC99AE25EE7AC4002163C0 /* AuthorizationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationPresenter.swift; sourceTree = "<group>"; };
 		C2AC99B425EE7CBA002163C0 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		C2DAC65225EF8FC800F9F691 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		C2DAC65A25EF8FD900F9F691 /* RegistrationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPresenter.swift; sourceTree = "<group>"; };
+		C2DAC66025EF951300F9F691 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		C2DAC66525EF952200F9F691 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
+		C2DAC66B25EF9D5400F9F691 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		C2DAC67125EFA4D900F9F691 /* GlobalExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalExtensions.swift; sourceTree = "<group>"; };
 		C2FD12E625EE72C600A707FF /* ExampleMVP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleMVP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2FD12E925EE72C600A707FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2FD12F225EE72C700A707FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -126,6 +138,32 @@
 			path = BaseCoordinator;
 			sourceTree = "<group>";
 		};
+		C2DAC65125EF8FA100F9F691 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				C2DAC65225EF8FC800F9F691 /* RegistrationViewController.swift */,
+				C2DAC65A25EF8FD900F9F691 /* RegistrationPresenter.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		C2DAC65F25EF94FC00F9F691 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C2DAC66025EF951300F9F691 /* MainViewController.swift */,
+				C2DAC66525EF952200F9F691 /* MainPresenter.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		C2DAC66A25EF9D3100F9F691 /* LocalDatabaseLayer */ = {
+			isa = PBXGroup;
+			children = (
+				C2DAC66B25EF9D5400F9F691 /* DBManager.swift */,
+			);
+			path = LocalDatabaseLayer;
+			sourceTree = "<group>";
+		};
 		C2FD12DD25EE72C600A707FF = {
 			isa = PBXGroup;
 			children = (
@@ -151,11 +189,13 @@
 		C2FD12E825EE72C600A707FF /* ExampleMVP */ = {
 			isa = PBXGroup;
 			children = (
+				C2DAC66A25EF9D3100F9F691 /* LocalDatabaseLayer */,
 				C2FD132525EE747A00A707FF /* App */,
 				C2FD132825EE750500A707FF /* Route */,
 				C2FD132725EE74E100A707FF /* Authorization */,
+				C2DAC65125EF8FA100F9F691 /* Registration */,
+				C2DAC65F25EF94FC00F9F691 /* Main */,
 				C2FD132625EE748600A707FF /* Supporting Files */,
-				C2FD12F225EE72C700A707FF /* Assets.xcassets */,
 				C2FD12F425EE72C700A707FF /* LaunchScreen.storyboard */,
 			);
 			path = ExampleMVP;
@@ -190,7 +230,9 @@
 		C2FD132625EE748600A707FF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C2FD12F225EE72C700A707FF /* Assets.xcassets */,
 				C2FD12F725EE72C700A707FF /* Info.plist */,
+				C2DAC67125EFA4D900F9F691 /* GlobalExtensions.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -452,11 +494,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2AC99AA25EE7725002163C0 /* AuthorizationViewController.swift in Sources */,
+				C2DAC65B25EF8FD900F9F691 /* RegistrationPresenter.swift in Sources */,
 				C2AC99B525EE7CBA002163C0 /* BaseCoordinator.swift in Sources */,
 				C2FD132A25EE751700A707FF /* AppCoordinator.swift in Sources */,
 				C2AC99AF25EE7AC4002163C0 /* AuthorizationPresenter.swift in Sources */,
+				C2DAC66625EF952200F9F691 /* MainPresenter.swift in Sources */,
+				C2DAC65325EF8FC800F9F691 /* RegistrationViewController.swift in Sources */,
+				C2DAC67225EFA4D900F9F691 /* GlobalExtensions.swift in Sources */,
+				C2DAC66125EF951300F9F691 /* MainViewController.swift in Sources */,
 				C2FD12EA25EE72C600A707FF /* AppDelegate.swift in Sources */,
 				C2FD133225EE753100A707FF /* Coordinator.swift in Sources */,
+				C2DAC66C25EF9D5400F9F691 /* DBManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
